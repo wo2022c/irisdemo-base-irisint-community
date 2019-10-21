@@ -1,4 +1,4 @@
-FROM intersystemsdc/irisdemo-base-irisint-community:2019.3.0.309.0
+FROM intersystemsdc/irisdemo-base-irisint-community:iris-community.2019.3.0.309.0
 
 LABEL maintainer="Amir Samary <amir.samary@intersystems.com>"
 
