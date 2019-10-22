@@ -13,7 +13,7 @@ The image includes:
 If you just want to run the instance on your PC, make sure you have docker installed on your machine and run the following command:
 
 ```bash
-docker run -it --rm -p 52773:52773 --name iriscontainer intersystemsdc/irisdemo-base-irisint-community:version-latest
+docker run -it --rm -p 52773:52773 --name iriscontainer --init intersystemsdc/irisdemo-base-irisint-community:latest
 ```
 
 Then open the System Manager Portal on http://localhost:52773/csp/sys/UtilHome.csp
