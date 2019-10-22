@@ -24,7 +24,7 @@ USER irisowner
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
 # Name of the project folder ex.: irisdemoint-atelier-project
-ARG IRIS_PROJECT_FOLDER_NAME
+ARG IRIS_PROJECT_FOLDER_NAME=irisdemoint-atelier-project
 
 # Used to specify a folder on the container with the source code (csp pages, classes, etc.)
 # to load into the CSP application.
