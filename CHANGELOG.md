@@ -1,4 +1,4 @@
-## 1.5 (December 11, 2019)
+## 1.6 (December 11, 2019)
   - Based on IRIS Community 2019.4
 
 ## 1.4
