@@ -11,7 +11,9 @@
 #
 # Parameter
 #
-TAG=2019.4.0.379.0
+#TAG=2020.1.0-latest
+#TAG=2020.1.0.197.0
+TAG=2020.2.0.211.0
 
 #
 # Constants
