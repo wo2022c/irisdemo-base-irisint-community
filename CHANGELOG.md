@@ -1,8 +1,6 @@
-## 1.6.0 (July 13, 2020)
-  - Adding support for 2020.2.0.211.0
-
-## 1.6.1 (July 13, 2020)
-
+## 1.7.0 (August 03, 2020)
+  - Upgrading image to use IRIS 2020.3.0.200.0
+  - Because of 2020.3.0.200.0, super server port is now 1972
 
 ## 1.6 (December 11, 2019)
   - Based on IRIS Community 2019.4
