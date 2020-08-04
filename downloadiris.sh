@@ -14,18 +14,23 @@
 #TAG=2020.1.0-latest
 #TAG=2020.1.0.197.0
 #TAG=2020.2.0.211.0
-TAG=2020.3.0.200.0
+
+# This one is ok!
+#TAG=2020.3.0.200.0 
+
+# This one is not publicly available
+TAG=2020.4.0ETL.130.0
 
 #
 # Constants
 #
 
 # Taking from InterSystems repository on Docker Hub:
-ISC_IMAGENAME=store/intersystems/iris-community:$TAG
+#ISC_IMAGENAME=store/intersystems/iris-community:$TAG
+ISC_IMAGENAME=docker.iscinternal.com/intersystems/iris:$TAG
 
 # Pushing to our repository on Docker Hub:
 DH_IMAGENAME=intersystemsdc/irisdemo-base-irisint-community:iris-community.$TAG
-
 
 # printf "\n\nLoggin into docker.iscinternal.com (VPN Required!) to download newer images...\n"
 # docker login docker.iscinternal.com
@@ -49,14 +54,15 @@ else
     exit 0
 fi
 
-printf "\n\nEnter with your credentials on docker hub so we can upload the images:\n"
-docker login
+# We can not push full IRIS to public dockerhub
+# printf "\n\nEnter with your credentials on docker hub so we can upload the images:\n"
+# docker login
 
-printf "\n\nUploading images...\n"
-docker push $DH_IMAGENAME
-if [ $? -eq 0 ]; then
-    printf "\nPushing of $DH_IMAGENAME successful.\n"
-else
-    printf "\nPushing of $DH_IMAGENAME successful.\n"
-    exit 0
-fi
+# printf "\n\nUploading images...\n"
+# docker push $DH_IMAGENAME
+# if [ $? -eq 0 ]; then
+#     printf "\nPushing of $DH_IMAGENAME successful.\n"
+# else
+#     printf "\nPushing of $DH_IMAGENAME successful.\n"
+#     exit 0
+# fi
