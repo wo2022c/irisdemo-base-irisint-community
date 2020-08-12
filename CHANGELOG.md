@@ -1,3 +1,9 @@
+## 1.9.0 (August 12, 2020)
+  - Bump version to 1.8.0.
+  - Based on IRIS Community AA 2020.3.0AA.331.0
+  - Bump version to 1.8.0.
+  - Building based on IRIS 2020.4 - experimental
+
 ## 1.8.0 (August 12, 2020)
   - Based on IRIS Community AA 2020.3.0AA.331.0
   - Changing super server port to 1972
