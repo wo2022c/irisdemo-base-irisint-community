@@ -14,14 +14,12 @@
 #TAG=2020.1.0-latest
 #TAG=2020.1.0.197.0
 #TAG=2020.2.0.211.0
-TAG=2020.3.0.200.0
-
-#
-# Constants
-#
+#TAG=2020.3.0.200.0
+TAG=2020.3.0AA.331.0
 
 # Taking from InterSystems repository on Docker Hub:
-ISC_IMAGENAME=store/intersystems/iris-community:$TAG
+# ISC_IMAGENAME=store/intersystems/iris-community:$TAG
+ISC_IMAGENAME=store/intersystems/iris-aa-community:$TAG
 
 # Pushing to our repository on Docker Hub:
 DH_IMAGENAME=intersystemsdc/irisdemo-base-irisint-community:iris-community.$TAG
