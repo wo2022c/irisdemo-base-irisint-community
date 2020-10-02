@@ -1,3 +1,6 @@
+## 1.9.1 (October 01, 2020)
+  - Now we are building the same base image using APPINT and another using the USER database.
+
 ## 1.9.0 (August 12, 2020)
   - Bump version to 1.8.0.
   - Based on IRIS Community AA 2020.3.0AA.331.0
