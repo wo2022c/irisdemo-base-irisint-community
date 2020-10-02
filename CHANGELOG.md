@@ -1,3 +1,6 @@
+## 1.9.3 (October 01, 2020)
+  - Adding missing buildtools.sh to fix docker auto build
+
 ## 1.9.2 (October 01, 2020)
   - Fixing docker autobuild
 
