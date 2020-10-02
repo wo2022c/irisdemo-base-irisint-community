@@ -1,0 +1,29 @@
+#!/bin/bash
+
+echo
+echo "### HOOK - build environment:"
+echo "   SOURCE_BRANCH  : $SOURCE_BRANCH"
+echo "   SOURCE_COMMIT  : $SOURCE_COMMIT"
+echo "   COMMIT_MSG     : $COMMIT_MSG"
+echo "   DOCKER_REPO    : $DOCKER_REPO"
+echo "   DOCKERFILE_PATH: $DOCKERFILE_PATH"
+echo "   DOCKER_TAG     : $DOCKER_TAG"
+echo "   DOCKER_TAG     : $IMAGE_NAME"
+
+git submodule update --init --recursive
+
+source ./buildtools.sh
+
+# funtion build_java_project will add a line with the full image name of each image built
+# But we need to start with an empty file:
+rm -f ./images_built
+
+IMAGE_NAME=intersystemsdc/$GIT_REPO_NAME:${DOCKER_TAG}
+docker build --build-arg IRIS_PROJECT_FOLDER_NAME=$IRIS_PROJECT_FOLDER_NAME --force-rm -t $IMAGE_NAME -f ./APPINT.Dockerfile .
+echo $IMAGE_NAME >> ./images_built
+
+USER_IMAGE_NAME=intersystemsdc/$GIT_REPO_NAME:${DOCKER_TAG}U
+docker build --build-arg IRIS_PROJECT_FOLDER_NAME=$IRIS_PROJECT_FOLDER_NAME --force-rm -t $USER_IMAGE_NAME -f ./USER.Dockerfile .
+echo $USER_IMAGE_NAME >> ./images_built
+
+#The push script will loop on the lines of ./images_build and push them!
