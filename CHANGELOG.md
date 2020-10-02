@@ -1,3 +1,6 @@
+## 1.9.2 (October 01, 2020)
+  - Fixing docker autobuild
+
 ## 1.9.1 (October 01, 2020)
   - Now we are building the same base image using APPINT and another using the USER database.
 
