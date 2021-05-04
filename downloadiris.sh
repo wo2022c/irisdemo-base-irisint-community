@@ -15,21 +15,22 @@
 #TAG=2020.1.0.197.0
 #TAG=2020.2.0.196.0
 # TAG=2020.2.0.211.0
-TAG=2020.3.0.200.0
+# TAG=2020.3.0.200.0
+TAG=2021.1.0.205.0
 
 #
 # Constants
 #
 
-# Taking from InterSystems repository on Docker Hub:
-ISC_IMAGENAME=store/intersystems/iris-community:$TAG
+# Taking from InterSystems repository at containers.intersystems.com
+ISC_IMAGENAME=containers.intersystems.com/intersystems/iris-community:$TAG
 
 # Pushing to our repository on Docker Hub:
 DH_IMAGENAME=intersystemsdc/irisdemo-base-irisdb-community:iris-community.$TAG
 
 
 printf "\n\nLoggin into docker.iscinternal.com (VPN Required!) to download newer images...\n"
-docker login docker.iscinternal.com
+docker login containers.intersystems.com
 
 printf "\n\nPulling images...\n"
 docker pull $ISC_IMAGENAME
@@ -40,24 +41,24 @@ else
     exit 0
 fi
 
-printf "\n\Tagging images...\n"
+printf "\nTagging images...\n"
 docker tag $ISC_IMAGENAME $DH_IMAGENAME
 
 if [ $? -eq 0 ]; then
-    printf "\Tagging of $ISC_IMAGENAME as $DH_IMAGENAME successful\n"
+    printf "\nTagging of $ISC_IMAGENAME as $DH_IMAGENAME successful\n"
 else
-    printf "\Tagging of $ISC_IMAGENAME as $DH_IMAGENAME failed\n"
+    printf "\nTagging of $ISC_IMAGENAME as $DH_IMAGENAME failed\n"
     exit 0
 fi
 
 printf "\n\nEnter with your credentials on docker hub so we can upload the images:\n"
 docker login
 
-printf "\n\Uploading images...\n"
+printf "\n\nUploading images...\n"
 docker push $DH_IMAGENAME
 if [ $? -eq 0 ]; then
-    printf "\Pushing of $DH_IMAGENAME successful.\n"
+    printf "\nPushing of $DH_IMAGENAME successful.\n"
 else
-    printf "\Pushing of $DH_IMAGENAME successful.\n"
+    printf "\nPushing of $DH_IMAGENAME successful.\n"
     exit 0
 fi
