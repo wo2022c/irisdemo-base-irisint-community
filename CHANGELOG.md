@@ -1,3 +1,6 @@
+## 1.9.5 (May 04, 2021)
+  - Bumping version of IRIS to 2021.1.0.205.0
+
 ## 1.9.4 (October 01, 2020)
   - Fixing docker autobuild
 
