@@ -26,7 +26,7 @@ TAG=2021.1.0.205.0
 ISC_IMAGENAME=containers.intersystems.com/intersystems/iris-community:$TAG
 
 # Pushing to our repository on Docker Hub:
-DH_IMAGENAME=intersystemsdc/irisdemo-base-irisdb-community:iris-community.$TAG
+DH_IMAGENAME=intersystemsdc/irisdemo-base-irisint-community:iris-community.$TAG
 
 
 printf "\n\nLoggin into docker.iscinternal.com (VPN Required!) to download newer images...\n"
