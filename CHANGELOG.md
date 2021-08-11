@@ -1,3 +1,6 @@
+## 1.9.6 (August 11, 2021)
+  - Bumping it to IRIS iris-community.2021.1.0.215.0
+
 ## 1.9.5 (May 04, 2021)
   - Bumping version of IRIS to 2021.1.0.205.0
 
