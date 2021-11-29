@@ -1,3 +1,6 @@
+## 1.9.7 (November 29, 2021)
+  - Bumping base image to 2021.1.0.215.3
+
 ## 1.9.6 (August 11, 2021)
   - Bumping it to IRIS iris-community.2021.1.0.215.0
 
