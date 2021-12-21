@@ -207,19 +207,13 @@ load_and_run_installer() {
     ObjectScript='Set tSC=$System.OBJ.Load("/tmp/iris_project/IRISConfig/Installer.cls","ck")'
 	runObjectScriptOnNS "$ObjectScript" "%SYS"
 
-    # Removing Eclipse/Atelier files so that when we try to load our project we don't get the
-    # following error:
-    # ERROR #5840: Unable to import file '/tmp/iris_project/.buildpath' as this is not a supported type.ERROR: Service 'twittersrv' failed to build: The command '/bin/sh -c /usr/irissys/demo/irisdemoinstaller.sh' returned a non-zero code: 1
-    rm -f /tmp/iris_project/.buildpath
-    rm -f /tmp/iris_project/.project
-    rm -rf /tmp/iris_project/.settings
-
     printf "\n\nRunning Installer..."
     ObjectScript='Do ##class(IRISConfig.Installer).Install()'
 	runObjectScriptOnNS "$ObjectScript" "%SYS"
 
     rm -rf /tmp/iris_project
-
+	exit_if_error "Could not remove /tmp/iris_project folder."
+	
 	return 0;
 }
 

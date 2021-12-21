@@ -3,14 +3,15 @@ FROM intersystemsdc/irisdemo-base-irisint-community:iris-community.2021.2.0.619.
 
 LABEL maintainer="Amir Samary <amir.samary@intersystems.com>"
 
+# Changing to root so we can add the files and then use the chown command to 
+# change the permissions to irisowner/irisowner.
 # Get Java OpenJDK 1.8 for JDBC and/or Java Gateway, which must run as root user
 USER root
+
 RUN apt-get -y update && \
     apt-get install --no-install-recommends -y openjdk-8-jre-headless ca-certificates-java && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
-USER irisowner
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
@@ -38,6 +39,9 @@ ADD --chown=irisowner:irisuser ./${IRIS_PROJECT_FOLDER_NAME}/ $IRIS_APP_SOURCEDI
 ADD --chown=irisowner:irisuser ./imageBuildingUtils.sh /demo/imageBuildingUtils.sh
 ADD --chown=irisowner:irisuser ./irisdemobaseinstaller.sh /demo/irisdemobaseinstaller.sh
 ADD --chown=irisowner:irisuser ./irisdemoinstaller.sh /demo/irisdemoinstaller.sh
+
+# Now we change back to irisowner so that the RUN command will be run with this user
+USER irisowner
 
 # Running irisdemobaseinstaller will trigger irisdemoinstaller too. In this case, we do have
 # some basic source code from the base image that we want to load, so that is fine. Child images
