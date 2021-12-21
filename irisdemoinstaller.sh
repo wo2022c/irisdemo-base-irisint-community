@@ -5,7 +5,7 @@
 # This must not be used on production. 
 #
 
-source $ISC_PACKAGE_INSTALLDIR/demo/imageBuildingUtils.sh
+source /demo/imageBuildingUtils.sh
 
 configure_iris;
 
