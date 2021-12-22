@@ -33,12 +33,14 @@ ENV IRIS_ROUTINE_BUFFERS=64
 # Adding source code that will be loaded by the installer
 # In order for the ADD command to add the files in the image with the correct user
 # We need to be running the ADD command with the root user and use the --chown parameter
-ADD --chown=irisowner:irisuser ./${IRIS_PROJECT_FOLDER_NAME}/ $IRIS_APP_SOURCEDIR
+ADD ./${IRIS_PROJECT_FOLDER_NAME}/ $IRIS_APP_SOURCEDIR
+RUN chown -R irisowner:irisowner $IRIS_APP_SOURCEDIR
 
 # Adding scripts to load base image source and child image source
-ADD --chown=irisowner:irisuser ./imageBuildingUtils.sh /demo/imageBuildingUtils.sh
-ADD --chown=irisowner:irisuser ./irisdemobaseinstaller.sh /demo/irisdemobaseinstaller.sh
-ADD --chown=irisowner:irisuser ./irisdemoinstaller.sh /demo/irisdemoinstaller.sh
+ADD ./imageBuildingUtils.sh /demo/imageBuildingUtils.sh
+ADD ./irisdemobaseinstaller.sh /demo/irisdemobaseinstaller.sh
+ADD ./irisdemoinstaller.sh /demo/irisdemoinstaller.sh
+RUN chown -R irisowner:irisowner /demo
 
 # Now we change back to irisowner so that the RUN command will be run with this user
 USER irisowner
