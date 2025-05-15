@@ -1,5 +1,5 @@
 # FROM docker.iscinternal.com/intersystems/iris-community:2020.1.0-latest
-FROM containers.intersystems.com/intersystems/iris-community:2024.1
+FROM containers.intersystems.com/intersystems/iris-community:latest-cd
 
 LABEL maintainer="Amir Samary <amir.samary@intersystems.com>"
 
